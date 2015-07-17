@@ -11,9 +11,10 @@ Adobe Illustrator (CC 2014, 2015) add-on with following functions.
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
 ###Installation
-Because of the character of this add-on that loads external script files, it is released with an assumtion of doing debugs.  Installation steps are as follows.
-1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf] at page 10.
-1. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to the page 5 of above document ("Extension management" section).
+Because of the character of this add-on that loads external script files, it is released with an assumtion of doing debugs.  Installation steps are as follows.  
+
+1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf] at page 10.  
+2. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to the page 5 of above document ("Extension management" section).  
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 

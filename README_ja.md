@@ -11,9 +11,10 @@
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
 ###導入方法
-　諸々のスクリプトを読み込んで実行するという性格上、デバッグ機能を利用することを想定しています。このため、導入には通常のadd-onと異なる手順が必要です。  
-1. [CC14_Extension_SDK.pdf] の10頁にしたがって、debug mode flagを設定してください。
-1. [CC14_Extension_SDK.pdf] の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
+　諸々のスクリプトを読み込んで実行するという性格上、デバッグ機能を利用することを想定しています。このため、導入には通常のadd-onと異なる手順が必要です。    
+
+1. [CC14_Extension_SDK.pdf] の10頁にしたがって、debug mode flagを設定してください。  
+2. [CC14_Extension_SDK.pdf] の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
