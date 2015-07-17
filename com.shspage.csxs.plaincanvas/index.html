@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link id="hostStyle" rel="stylesheet" href="css/theme.css"/>
+<script type="text/javascript" src="js/libs/paper-core.js"></script>
+<title></title>
+</head>
+
+<body class="hostElt">
+
+	<div style="z-index:0; top:0px; position:absolute;width:100%;height:100%">
+		<canvas id="canvas" resize></canvas>
+    </div>
+	<div style="z-index:1; top:0px; position:absolute;width:100%;height:100%; display:none;" id="div_screen">
+		<table style="width:100%;height:100%;background-color:#333333;opacity:0.5;"><tr><td></td></tr></table>
+    </div>
+    <div style="z-index:2; top:0px; position:absolute" id="div_buttons">
+        <div>
+            <button id="btn_in" class="css_btn_class">in</button>
+            <button id="btn_out" class="css_btn_class">out</button>
+            <button id="btn_opt" class="css_btn_class">opt</button>
+            <button id="btn_undo" class="css_btn_class">&#60;</button>
+            <button id="btn_redo" class="css_btn_class">&#62;</button>
+            <button id="btn_clear" class="css_btn_class">CL</button>
+
+			<!-- debug and reload buttons are shown if DEBUG_MODE in main.js set to true -->
+            <button class="css_btn_class" id="btn_debug" style="display:none">DB</button>
+            <button class="css_btn_class" id="btn_reload" style="display:none">RL</button>
+
+			<input type="file" id="file">
+        </div>
+		<div id="div_options" style="display:none;">
+			<table id="table_options" class="options">
+				<tr id="tr1"><td id="td1">item1</td><td><input id="input1" type="number"></td></tr>
+				<tr id="tr2"><td id="td2">item2</td><td><input id="input2" type="number"></td></tr>
+				<tr id="tr3"><td id="td3">item3</td><td><input id="input3" type="number"></td></tr>
+				<tr id="tr4"><td id="td4">item4</td><td><input id="input4" type="number"></td></tr>
+				<tr id="tr5"><td id="td5">item5</td><td><input id="input5" type="number"></td></tr>
+			</table>
+			<div id="div_no_option" style="display:none">
+				<span id="span_no_option" class="no_option">no option</span>
+			</div>
+		</div>
+    </div>
+    <script src="js/libs/CSInterface.js"></script>
+    <script src="js/libs/jquery-2.0.2.min.js"></script>
+    <script src="js/themeManager.js"></script>
+    <script src="js/undoManager.js"></script>
+    <script src="js/optionManager.js"></script>
+    <script src="js/main.js"></script>
+	<script type="text/javascript" id="script_paper">
+window.onload = function (){
+  var canvas = document.getElementById("canvas");
+  paper.setup(canvas);
+  var tool = new paper.Tool();
+  tool.minDistance = 10;
+
+  var myPath;
+
+  tool.onMouseDown = function(evt){
+  	myPath = new paper.Path();
+    myPath.strokeColor = "black";
+  }
+
+  tool.onMouseUp = function(evt){
+  	myPath.smooth(10);
+    undoManager.keep(myPath);
+  }
+
+  tool.onMouseDrag = function(evt){
+  	myPath.add(evt.point);
+  }
+
+  optionManager.noOption();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<ExtensionList>
+    <Extension Id="com.shspage.csxs.plaincanvas">
+        <HostList>
+           <Host Name="ILST" Port="8080"/>
+       </HostList>
+    </Extension>
+</ExtensionList>
+ 
