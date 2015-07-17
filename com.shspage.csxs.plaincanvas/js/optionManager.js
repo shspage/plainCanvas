@@ -2,23 +2,6 @@
     optionManager
 
     // ----------------------
-    // functions for CMYK colors
-    // ----------------------
-    registCmykColor(id, cmykSpec, is_fill)
-    ... keeps the color information of the paper object in memory.
-    ... id: id of the paper object
-        cmykSpec: a comma separated string which
-            represents C,M,Y,K values. ex:"50.5,20,0,100"
-        is_fill: true if the color is fillColor
-  
-    getRegistedColor(id, is_fill)
-    ... takes the color information of the paper object out of memory.
-        returns cmykSpec (see registCmykColor).
-        if "id" is not in memory, returns "".
-    ... id: id of the paper object
-        is_fill: true if the color is fillColor
-  
-    // ----------------------
     // functions for UI and optional values
     // ----------------------
     setupOptionsUI(titles, values)
@@ -45,45 +28,6 @@ var optionManager = (function() {
 
     var OPTION_COUNT = 5;
 
-    // ----------------------
-    // functions for CMYK colors
-    // ----------------------
-    // Since paper.js can't handle CMYK colors, these functions
-    // keep values of them in "_ids" object, associated with
-    // id of paper.Item.
-  
-    // _ids
-    // key: id of paper.Item
-    // value: CMYK instance
-    var _ids = {};
-
-    var CMYK = function(){
-        // each value is comma separated cmyk values. ex:"50.5,20,0,100"
-        this.fill;
-        this.stroke;
-    }
-    // ----
-    var registCmykColor = function(id, cmykSpec, is_fill){
-        if(!(id in _ids)) _ids[id] = new CMYK();
-        
-        if(is_fill){
-            _ids[id].fill = cmykSpec;  // ex:"50.5,20,0,100"
-        } else {
-            _ids[id].stroke = cmykSpec;
-        }
-    }
-    // ----
-    var getRegistedColor = function(id, is_fill){
-      if(id in _ids){
-          if(is_fill){
-              if(_ids[id].fill) return "," + _ids[id].fill;
-          } else {
-              if(_ids[id].stroke) return "," + _ids[id].stroke;
-          }
-      }
-      return "";
-    }
-    
     // ----------------------
     // functions for UI and optional values
     // ----------------------
@@ -145,8 +89,6 @@ var optionManager = (function() {
   
     // ------------------------------------
     return {
-        registCmykColor : registCmykColor,
-        getRegistedColor : getRegistedColor,
         setupOptionsUI : setupOptionsUI,
         getOptionsFromUI : getOptionsFromUI,
         resetOptions : resetOptions,

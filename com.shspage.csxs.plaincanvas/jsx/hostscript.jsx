@@ -64,10 +64,6 @@ M.prototype = {
     }
 }
 // ----
-function isCurrentColorSpaceCMYK(){
-  return activeDocument.documentColorSpace == DocumentColorSpace.CMYK;
-}
-// ----
 function isBadCondition(){
     var errmsg = "";
     if(app.documents.length < 1){

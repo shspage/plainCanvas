@@ -236,7 +236,7 @@
                         // stroke
                         if(r[i++] == "1"){  // stroked
                             p.strokeWidth = pf(r[i]);
-                            p.fillColor = getPaperColorFromResult(
+                            p.strokeColor = getPaperColorFromResult(
                               p.id, r[++i],r[++i],r[++i],r[++i],r[++i], false);
                             i++;
                         } else {
