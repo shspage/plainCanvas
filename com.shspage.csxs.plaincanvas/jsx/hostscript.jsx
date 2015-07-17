@@ -135,7 +135,7 @@ function serializePaths(){
     var top = top_left[0] + MARGIN_TOP;
     var left = top_left[1] - MARGIN_LEFT;
     
-    for(var i = 0, iEnd = paths.length; i < iEnd; i++){
+    for(var i = paths.length - 1; i >= 0; i--){
         var r = ["@"];  // "@" is a mark that means the beginning of a path
         var p = paths[i];
         
