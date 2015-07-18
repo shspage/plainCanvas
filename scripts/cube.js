@@ -13,9 +13,9 @@
     
     // ----------------------------------------------
     var values = { 
-    cubeSize: 20,
-    interval: 20,
-    jitter:   20,
+    cubeSize: 10,
+    interval: 10,
+    jitter:   10,
     ok : 1,
     }; 
     
