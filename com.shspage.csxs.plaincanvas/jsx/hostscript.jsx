@@ -70,7 +70,7 @@ function isBadCondition(){
         errmsg = "Please open a document to export";
     } else if(app.activeDocument.activeLayer.locked){
         errmsg = "Please unlock the active layer";
-    } else if(app.activeDocument.activeLayer.hidden){
+    } else if(app.activeDocument.activeLayer.visible == false){
         errmsg = "Please make the active layer visible";
     }
     
