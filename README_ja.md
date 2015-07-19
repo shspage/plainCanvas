@@ -15,6 +15,7 @@
 
 1. [CC14_Extension_SDK.pdf] の10頁にしたがって、debug mode flagを設定してください。  
 2. [CC14_Extension_SDK.pdf] の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
+3. Illustrator を実行して、メニューの ウィンドウ -&#62; エクステンション の中にある plainCanvas を選んでください。
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
@@ -30,6 +31,7 @@
 * __select__ : パネル上の描画をクリアして、スクリプトファイルを読み込みます。
 
 ###読み込んで実行できる JavaScript スクリプト
+* [scripts](https://github.com/shspage/plainCanvas/tree/master/scripts) フォルダにサンプルスクリプトがあります。
 * javascript として記述してください (paperscript ではなく)。詳しくは、http://paperjs.org の、チュートリアル "[Using JavaScript Directly]" をご覧下さい。  
 　　__例：__ new Path() -> new paper.Path()  
 　　__例：__ point1 + point2 -> point1.add(point2)  
@@ -43,6 +45,7 @@ undoManager.keep(object);
 undo は、対象にしたオブジェクトを不可視にすることで行われるため、paper.project 上には存在したままです。ただし、undoManager.js の UNDO_LIMIT を超えた場合は古いものから削除されます。また、不可視オブジェクトは書き出されません。
 * 読み込んだスクリプトファイルは、index.html 内に新たに生成した script タグの内容として挿入されます。
 [Using JavaScript Directly]:http://paperjs.org/tutorials/getting-started/using-javascript-directly/
+
 
 ###色の扱い
 * canvas は CMYKカラーを扱えないため、CMYKカラーを取り込んだ場合はRGBに変換して表示します。このため、元の色と違って見える場合があります。元のCMYKの値はメモリに保持しており(*1)、書き出す際には元の色になります。  
@@ -60,7 +63,7 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * グループと複合パスは解除された状態で取り込まれます。
 
 ###ライセンス、その他
-* ※ 改変して公開する場合は、必ずバンドルID を変更してください。（バンドルID … CSXS/manifest.xml および.debug 内の com.shspage.csxs.plaincanvas。）
+* ※ 改変して公開する場合は、必ず __バンドルID__ を変更してください。（バンドルID … CSXS/manifest.xml および.debug 内の com.shspage.csxs.plaincanvas。）
 * MIT ライセンスの下で公開しています。詳細はLICENSE.txtをご覧下さい。
 ただし、以下の使用ライブラリは、それぞれのライセンスに従います。
 

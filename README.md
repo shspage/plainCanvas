@@ -1,9 +1,10 @@
 #plainCanvas
 
-Adobe Illustrator (CC 2014, 2015) add-on with following functions.
+Adobe Illustrator (CC 2014, 2015) add-on with following functions.  
+(Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
 
-* loads and executes a script file written for [paper.js].
-(at the initial state, a simple drawing tool is implemented.)
+* loads and executes a script file written for [paper.js].  
+(at the initial state, you can use a simple drawing tool.)
 * exports the image created on the panel onto the artboard.
 * imports selected paths on the artboard onto the panel.
 [paper.js]:http://paperjs.org
@@ -15,6 +16,7 @@ Because of the character of this add-on that loads external script files, it is 
 
 1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf] at page 10.  
 2. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to the page 5 of above document ("Extension management" section).  
+3. Launch Illustrator and navigate Window -&#62; Extensions fo find plainCanvas.
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
@@ -30,19 +32,21 @@ Because of the character of this add-on that loads external script files, it is 
 * __select__ : selects a script file to load
 
 ###script files that can be loaded
-* Written in JavaScript (not paperscript).  For details, see "[Using JavaScript Directly]" in http://paperjs.org.  
+* There're some sample scripts in "[scripts](https://github.com/shspage/plainCanvas/tree/master/scripts)" folder.  
+* Write in __JavaScript__ (not paperscript).  For details, see "[Using JavaScript Directly]" in http://paperjs.org.  
 __ex:__ new Path() -> new paper.Path()  
 __ex:__ point1 + point2 -> point1.add(point2)  
 __ex:__ function onMouseDown(event) -> tool.onMouseDown = function(event)  
-* Set the character encoding to UTF-8.
+* Set the character encoding to __UTF-8__.
 * You can use the UIs for optional values with simple methods. see "js/optionManager.js".
 * You can set a drawn object as a target for undo/redo by calling the method like this.
 ```javascript
 undoManager.keep(object);
 ```
 Note that undoed objects are just hidden, and still exists in the current paper.project.
-
 [Using JavaScript Directly]:http://paperjs.org/tutorials/getting-started/using-javascript-directly/
+
+
 
 ###colors
 * Since html5 canvas uses RGB color, imported CMYK and GRAY colors may look different from they look on the artboard.
