@@ -338,9 +338,17 @@
         // load a javascript file and setup paper again
         $("#file").change(function(e){
             var fileobj = e.target.files[0];
-            if(fileobj.type != "application/x-javascript"
-               && fileobj.type != "text/javascript"){
-                alert("select a JavaScript file");
+            var type = fileobj.type;
+            
+            if(type != "application/x-javascript"
+               && type != "application/javascript"
+               && type != "text/javascript"){
+                
+                if(type == ""){
+                    type = "(unknown type)";
+                }
+                
+                alert("Please select a JavaScript file.\rSelected file is \"" + type + "\".");
                 return false;
             }
             insertPaperScript(fileobj);
