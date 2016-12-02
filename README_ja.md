@@ -1,6 +1,6 @@
 #plainCanvas
 
-　Adobe Illustrator (CC 2014, 2015) 用の add-on です。以下のことが可能です。
+　Adobe Illustrator (CC 2014-2017) 用の add-on です。以下のことが可能です。
 
 * [paper.js] 用に書かれた JavaScript ファイルを読み込んで実行する。  
 （初期状態では、ドラッグで線を描くツールが使用できます。）
