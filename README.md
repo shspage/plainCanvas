@@ -1,6 +1,6 @@
 #plainCanvas
 
-Adobe Illustrator (CC 2014-2017) add-on with following functions.  
+Adobe Illustrator (CC 2014-2018) add-on with following functions.  
 (Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
 
 * loads and executes a script file written for [paper.js].  
