@@ -242,6 +242,11 @@
             $("#btn_reload").click(reloadPanel);
         }
 
+        $(document).on('drop dragover', function (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        });
+        
         // in button
         // serialize paths selected in artboard
         // and convert it into paths as paper object

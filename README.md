@@ -69,7 +69,8 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 #### v.1.1.0
 * Improved to prevent the text on the panel from being selected by dragging.
 * The script file is loaded by drag-and-drop to the panel.
-*
+#### v.1.1.1
+* Improved to invalidate drop to panel except when loading.
 
 ### TODO
 * I feel that writing a script file for this extension is fairly not easy, due to some "local rules". I would like to be able to write it with paperscript if possible.
