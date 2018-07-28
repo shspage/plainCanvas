@@ -2,22 +2,19 @@
 
 　Adobe Illustrator (CC 2014-2018) 用の add-on です。以下のことが可能です。
 
-* [paper.js] 用に書かれた JavaScript ファイルを読み込んで実行する。  
+* [paper.js](http://paperjs.org) 用に書かれた JavaScript ファイルを読み込んで実行する。  
 （初期状態では、ドラッグで線を描くツールが使用できます。）
 * add-on パネル上に作成した画像を、アートボードに書き出す。
 * アートボード上のパスを、add-on パネル上に取り込む。
-[paper.js]:http://paperjs.org
 
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
 ### 導入方法
 　諸々のスクリプトを読み込んで実行するという性格上、デバッグ機能を利用することを想定しています。このため、導入には通常のadd-onと異なる手順が必要です。    
 
-1. [CC14_Extension_SDK.pdf] の10頁にしたがって、debug mode flagを設定してください。  
-2. [CC14_Extension_SDK.pdf] の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
+1. [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) の10頁にしたがって、debug mode flagを設定してください。  
+2. [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
 3. Illustrator を実行して、メニューの ウィンドウ -&#62; エクステンション の中にある plainCanvas を選んでください。
-
-[CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
 ### パネル上のボタンについて
 * __in__ : Illustratorで選択されているパスが、パネル上に取り込まれます。
@@ -32,7 +29,7 @@
 
 ### 読み込んで実行できる JavaScript スクリプト
 * [scripts](https://github.com/shspage/plainCanvas/tree/master/scripts) フォルダにサンプルスクリプトがあります。
-* javascript として記述してください (paperscript ではなく)。詳しくは、http://paperjs.org の、チュートリアル "[Using JavaScript Directly]" をご覧下さい。  
+* javascript として記述してください (paperscript ではなく)。詳しくは、http://paperjs.org の、チュートリアル "[Using JavaScript Directly](http://paperjs.org/tutorials/getting-started/using-javascript-directly/)" をご覧下さい。  
 　　__例：__ new Path() -> new paper.Path()  
 　　__例：__ point1 + point2 -> point1.add(point2)  
 　　__例：__ function onMouseDown(event) -> tool.onMouseDown = function(event)  
@@ -44,7 +41,6 @@ undoManager.keep(object);
 ```
 undo は、対象にしたオブジェクトを不可視にすることで行われるため、paper.project 上には存在したままです。ただし、undoManager.js の UNDO_LIMIT を超えた場合は古いものから削除されます。また、不可視オブジェクトは書き出されません。
 * 読み込んだスクリプトファイルは、index.html 内に新たに生成した script タグの内容として挿入されます。
-[Using JavaScript Directly]:http://paperjs.org/tutorials/getting-started/using-javascript-directly/
 
 
 ### 色の扱い

@@ -3,22 +3,20 @@
 Adobe Illustrator (CC 2014-2018) add-on with following functions.  
 (Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
 
-* loads and executes a script file written for [paper.js].  
+* loads and executes a script file written for [paper.js](http://paperjs.org).  
 (at the initial state, you can use a simple drawing tool.)
 * exports the image created on the panel onto the artboard.
 * imports selected paths on the artboard onto the panel.
-[paper.js]:http://paperjs.org
 
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
 ### Installation
 Because of the character of this add-on that loads external script files, it is released with an assumtion of doing debugs.  Installation steps are as follows.  
 
-1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf] at page 10.  
+1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) at page 10.  
 2. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to the page 5 of above document ("Extension management" section).  
 3. Launch Illustrator and navigate Window -&#62; Extensions fo find plainCanvas.
 
-[CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
 ### buttons on the panel
 * __in__ : imports selected paths on the artboard onto the canvas
@@ -33,7 +31,7 @@ Because of the character of this add-on that loads external script files, it is 
 
 ### script files that can be loaded
 * There're some sample scripts in "[scripts](https://github.com/shspage/plainCanvas/tree/master/scripts)" folder.  
-* Write in __JavaScript__ (not paperscript).  For details, see "[Using JavaScript Directly]" in http://paperjs.org.  
+* Write in __JavaScript__ (not paperscript).  For details, see "[Using JavaScript Directly](http://paperjs.org/tutorials/getting-started/using-javascript-directly/)" in http://paperjs.org.  
 __ex:__ new Path() -> new paper.Path()  
 __ex:__ point1 + point2 -> point1.add(point2)  
 __ex:__ function onMouseDown(event) -> tool.onMouseDown = function(event)  
@@ -44,7 +42,6 @@ __ex:__ function onMouseDown(event) -> tool.onMouseDown = function(event)
 undoManager.keep(object);
 ```
 Note that undoed objects are just hidden, and still exists in the current paper.project.
-[Using JavaScript Directly]:http://paperjs.org/tutorials/getting-started/using-javascript-directly/
 
 
 
