@@ -1,4 +1,4 @@
-#plainCanvas
+# plainCanvas
 
 Adobe Illustrator (CC 2014-2018) add-on with following functions.  
 (Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
@@ -11,7 +11,7 @@ Adobe Illustrator (CC 2014-2018) add-on with following functions.
 
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
-###Installation
+### Installation
 Because of the character of this add-on that loads external script files, it is released with an assumtion of doing debugs.  Installation steps are as follows.  
 
 1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf] at page 10.  
@@ -20,18 +20,18 @@ Because of the character of this add-on that loads external script files, it is 
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
-###buttons on the panel
-* __in__ : imports selected paths on the artboard onto the panel
-* __out__ : exports the image created on the panel onto the artboard
+### buttons on the panel
+* __in__ : imports selected paths on the artboard onto the canvas
+* __out__ : exports the image created on the canvas onto the artboard
 * __opt__ : shows/hides the form for optional values
 * __&#60;__ : undo
 * __&#62;__ : redo
-* __CL__ : clears the panel
+* __CL__ : clears the canvas
 * __DB__ : opens the debug tool with a default browser.
-* __RL__ : reloads the panel
-* __select__ : selects a script file to load
+* __RL__ : reloads the extention panel
+* __load__ : shows a panel to drop a script file to load (also clears the canvas)
 
-###script files that can be loaded
+### script files that can be loaded
 * There're some sample scripts in "[scripts](https://github.com/shspage/plainCanvas/tree/master/scripts)" folder.  
 * Write in __JavaScript__ (not paperscript).  For details, see "[Using JavaScript Directly]" in http://paperjs.org.  
 __ex:__ new Path() -> new paper.Path()  
@@ -48,7 +48,7 @@ Note that undoed objects are just hidden, and still exists in the current paper.
 
 
 
-###colors
+### colors
 * Since html5 canvas uses RGB color, imported CMYK and GRAY colors may look different from they look on the artboard.
 * If ALWAYS_EXPORT_RGB (js/main.js) is set false, the original CMYK colors are kept in memory
 and are applied when they are exported. (When DefaultColorSpace of the artboard
@@ -56,16 +56,25 @@ is CMYK.)
 * If ALWAYS_EXPORT_RGB is true, GRAY colors are exported in RGB.
 * Gradient color and spot color are not supported for now.
 
-###exports to an artboard
+### exports to an artboard
 * Following attributes of paper.Path instance on the canvas are exported.  
 _segments, strokeWidth, strokeColor, fillColor, opacity_
 
-###imports from an artboard
+### imports from an artboard
 * Following attributes of selected PathItems are imported.  
 _pathPoints, strokeWidth, strokeColor, fillColor._
 * Grouped paths and compoundpaths are imported in released condition.
 
-###License
+### changelog
+#### v.1.1.0
+* Improved to prevent the text on the panel from being selected by dragging.
+* The script file is loaded by drag-and-drop to the panel.
+*
+
+### TODO
+* I feel that writing a script file for this extension is fairly not easy, due to some "local rules". I would like to be able to write it with paperscript if possible.
+
+### License
 * When you distribute a modified version, make sure changing the __bundle ID__.
 It is represented as "com.shspage.csxs.plaincanvas" in CSXS/manifest.xml and .debug.
 *  Copyright (c) 2015 Hiroyuki Sato. All rights reserved.  

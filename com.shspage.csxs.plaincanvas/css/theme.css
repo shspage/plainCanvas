@@ -7,6 +7,7 @@ body {
     margin: 0;
     position:relative;
 	height: 100%;
+    -webkit-user-select: none;
 }
 button
 {
@@ -58,9 +59,23 @@ label.memo{
 	color:#999;
 	font-size:80%;
 }
-span.no_option{
+span.black_text{
 	color:#000000;
 }
+
+#div_dropzone{
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+#span_dropzone_text{
+	font: 20pt bold;
+	color: #fff;
+}
+
 .hostFont{}
 .hostBgd{}
 .hostElt{}

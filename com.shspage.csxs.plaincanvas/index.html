@@ -28,7 +28,9 @@
             <button class="css_btn_class" id="btn_debug" style="display:none">DB</button>
             <button class="css_btn_class" id="btn_reload" style="display:none">RL</button>
 
-			<input type="file" id="file">
+      <!-- input type="file" id="file" -->
+      <button id="btn_file" class="css_btn_class">load</button>
+      <span id="script_filename" class="black_text">--</span>
         </div>
 		<div id="div_options" style="display:none;">
 			<table id="table_options" class="options">
@@ -39,9 +41,14 @@
 				<tr id="tr5"><td id="td5">item5</td><td><input id="input5" type="number"></td></tr>
 			</table>
 			<div id="div_no_option" style="display:none">
-				<span id="span_no_option" class="no_option">no option</span>
+				<span id="span_no_option" class="black_text">no option</span>
 			</div>
 		</div>
+    </div>
+    <div style="z-index:3; top:0px; position:absolute;width:100%;height:100%; display:none;" id="div_dropzone">
+      <div><span id="span_dropzone_text">drop a script file</span>
+      <br>
+      <button id="btn_file_cancel" class="css_btn_class">cancel</button></div>
     </div>
     <script src="js/libs/CSInterface.js"></script>
     <script src="js/libs/jquery-2.0.2.min.js"></script>

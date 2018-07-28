@@ -168,10 +168,47 @@
         }
         return col;
     }
-    
+
     // ----------------------
     // functions to load a script file
     // ----------------------
+    function handleFileSelect(evt){
+        evt.stopPropagation();
+        evt.preventDefault();
+        console.log("in");
+        var files = evt.dataTransfer.files;
+        if(files.length > 0){
+            var fileobj = files[0];
+            console.log(fileobj);
+            var type = fileobj.type;
+            
+            if(type != "application/x-javascript"
+               && type != "application/javascript"
+               && type != "text/javascript"){
+                
+                if(type == ""){
+                    type = "(unknown type)";
+                }
+                
+                alert("Please select a JavaScript file.\rSelected file is \"" + type + "\".");
+                return false;
+            }
+            insertPaperScript(fileobj);
+            $("#div_dropzone").hide();
+            $("#div_screen").hide();
+            $("#script_filename").text(fileobj.name);
+        }
+    }
+    function handleDragOver(evt){
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = "copy";
+    }
+    
+    var dropZone = document.getElementById('div_dropzone');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+
     // load a script file and insert its contents into the document
     function insertPaperScript(fileobj){
         var fr = new FileReader();
@@ -336,7 +373,7 @@
         
         // file select button
         // load a javascript file and setup paper again
-        $("#file").change(function(e){
+        /* $("#file").change(function(e){
             var fileobj = e.target.files[0];
             var type = fileobj.type;
             
@@ -352,6 +389,16 @@
                 return false;
             }
             insertPaperScript(fileobj);
+        }); */
+
+        // ----
+        $("#btn_file").click(function(e){
+            $("#div_dropzone").show();
+            $("#div_screen").show();
+        });
+        $("#btn_file_cancel").click(function(e){
+            $("#div_dropzone").hide();
+            $("#div_screen").hide();
         });
     }
     

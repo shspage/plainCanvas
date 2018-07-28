@@ -1,4 +1,4 @@
-#plainCanvas
+# plainCanvas
 
 　Adobe Illustrator (CC 2014-2018) 用の add-on です。以下のことが可能です。
 
@@ -10,7 +10,7 @@
 
 ![image of the panel](https://github.com/shspage/plainCanvas/raw/master/image/desc_plaincanvas.png "image of the panel")
 
-###導入方法
+### 導入方法
 　諸々のスクリプトを読み込んで実行するという性格上、デバッグ機能を利用することを想定しています。このため、導入には通常のadd-onと異なる手順が必要です。    
 
 1. [CC14_Extension_SDK.pdf] の10頁にしたがって、debug mode flagを設定してください。  
@@ -19,7 +19,7 @@
 
 [CC14_Extension_SDK.pdf]:http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf
 
-###パネル上のボタンについて
+### パネル上のボタンについて
 * __in__ : Illustratorで選択されているパスが、パネル上に取り込まれます。
 * __out__ : パネル上のパスが、アートボードに書き出されます。
 * __opt__ : オプション入力欄を表示／非表示します。入力できるオプションがない場合、no option と表示されます。
@@ -28,9 +28,9 @@
 * __CL__ : パネル上の描画をクリアします。
 * __DB__ : 既定のブラウザでデバッグツールを開きます。
 * __RL__ : パネルをリロードします。( hostscript.jsx はリロードされません。)
-* __select__ : パネル上の描画をクリアして、スクリプトファイルを読み込みます。
+* __load__ : スクリプトファイルをドロップで読み込むためのパネルを表示します。（読み込み後、パネル上の描画はクリアされます。）
 
-###読み込んで実行できる JavaScript スクリプト
+### 読み込んで実行できる JavaScript スクリプト
 * [scripts](https://github.com/shspage/plainCanvas/tree/master/scripts) フォルダにサンプルスクリプトがあります。
 * javascript として記述してください (paperscript ではなく)。詳しくは、http://paperjs.org の、チュートリアル "[Using JavaScript Directly]" をご覧下さい。  
 　　__例：__ new Path() -> new paper.Path()  
@@ -47,22 +47,30 @@ undo は、対象にしたオブジェクトを不可視にすることで行わ
 [Using JavaScript Directly]:http://paperjs.org/tutorials/getting-started/using-javascript-directly/
 
 
-###色の扱い
+### 色の扱い
 * canvas は CMYKカラーを扱えないため、CMYKカラーを取り込んだ場合はRGBに変換して表示します。このため、元の色と違って見える場合があります。元のCMYKの値はメモリに保持しており(*1)、書き出す際には元の色になります。  
 (*1: js/main.js の ALWAYS_EXPORT_RGB が false の場合)
 * js/main.js の ALWAYS_EXPORT_RGB が true の場合、paper.Color.type == "gray" の色は RGBColor で書き出されます。
 * 取り込み／書き出しの処理は、グラデーション、特色 に対応していません。
 
-###アートボードへの書き出し
+### アートボードへの書き出し
 * canvas 上の paper.Path インスタンスの、以下の属性が書き出されます。  
 _segments, strokeWidth, strokeColor, fillColor, opacity_
 
-###パスの取り込み
+### パスの取り込み
 * アートボード上の選択範囲に含まれる PathItem の以下の属性が取り込まれます。  
 _pathPoints, strokeWidth, strokeColor, fillColor_
 * グループと複合パスは解除された状態で取り込まれます。
 
-###ライセンス、その他
+### 変更履歴
+#### v.1.1.0
+* パネル上のドラッグでテキストが選択されないようにしました。
+* スクリプトファイルをドラッグ＆ドロップで読み込むようにしました。
+
+### TODO
+* 仕組み上、いくつかの「ローカルルール」があるために、スクリプトファイルが書きにくい。できれば paperscript で書けるようにしたいのだけれど。
+
+### ライセンス、その他
 * ※ 改変して公開する場合は、必ず __バンドルID__ を変更してください。（バンドルID … CSXS/manifest.xml および.debug 内の com.shspage.csxs.plaincanvas。）
 * MIT ライセンスの下で公開しています。詳細はLICENSE.txtをご覧下さい。
 ただし、以下の使用ライブラリは、それぞれのライセンスに従います。
