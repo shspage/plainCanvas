@@ -8,14 +8,12 @@
 </head>
 
 <body class="hostElt">
-
-	<div style="z-index:0; top:0px; position:absolute;width:100%;height:100%">
+	<div style="z-index:0;" id="div_canvas">
 		<canvas id="canvas" resize></canvas>
     </div>
-	<div style="z-index:1; top:0px; position:absolute;width:100%;height:100%; display:none;" id="div_screen">
-		<table style="width:100%;height:100%;background-color:#333333;opacity:0.5;"><tr><td></td></tr></table>
+	<div style="z-index:1;display: none;" id="div_screen">
     </div>
-    <div style="z-index:2; top:0px; position:absolute" id="div_buttons">
+    <div style="z-index:2;" id="div_buttons">
         <div>
             <button id="btn_in" class="css_btn_class">in</button>
             <button id="btn_out" class="css_btn_class">out</button>
@@ -29,7 +27,7 @@
             <button class="css_btn_class" id="btn_reload" style="display:none">RL</button>
 
       <!-- input type="file" id="file" -->
-      <button id="btn_file" class="css_btn_class">load</button>
+      <!-- button id="btn_file" class="css_btn_class">load</button -->
       <span id="script_filename" class="black_text">--</span>
         </div>
 		<div id="div_options" style="display:none;">
@@ -45,9 +43,10 @@
 			</div>
 		</div>
     </div>
-    <div style="z-index:3; top:0px; position:absolute;width:100%;height:100%; display:none;" id="div_dropzone">
-      <div><span id="span_dropzone_text">drop a script file</span>
+    <div style="z-index:3;display:none;" id="div_dropzone">
+      <div><span id="span_dropzone_text">--</span>
       <br>
+      <button id="btn_file_ok" class="css_btn_class">OK</button>
       <button id="btn_file_cancel" class="css_btn_class">cancel</button></div>
     </div>
     <script src="js/libs/CSInterface.js"></script>
@@ -58,27 +57,27 @@
     <script src="js/main.js"></script>
 	<script type="text/javascript" id="script_paper">
 window.onload = function (){
-  var canvas = document.getElementById("canvas");
-  paper.setup(canvas);
-  var tool = new paper.Tool();
-  tool.minDistance = 10;
-
-  var myPath;
-
-  tool.onMouseDown = function(evt){
-  	myPath = new paper.Path();
-    myPath.strokeColor = "black";
+  paper.setup("canvas");
+  with(paper){
+    var tool = new Tool();
+    tool.minDistance = 10;
+    
+    var myPath;
+    
+    tool.onMouseDown = function(evt){
+      myPath = new Path();
+      myPath.strokeColor = "black";
+    }
+    
+    tool.onMouseUp = function(evt){
+      myPath.smooth(10);
+      undoManager.keep(myPath);
+    }
+    
+    tool.onMouseDrag = function(evt){
+      myPath.add(evt.point);
+    }
   }
-
-  tool.onMouseUp = function(evt){
-  	myPath.smooth(10);
-    undoManager.keep(myPath);
-  }
-
-  tool.onMouseDrag = function(evt){
-  	myPath.add(evt.point);
-  }
-
   optionManager.noOption();
 }
 </script>

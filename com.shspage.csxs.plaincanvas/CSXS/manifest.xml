@@ -2,7 +2,7 @@
 <ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.0.0"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.1" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.2" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
@@ -33,14 +33,14 @@
 							<Height>500</Height>
 							<Width>600</Width>
 						</Size>
-                    <MinSize>
+                        <MinSize>
                             <Height>100</Height>
                             <Width>400</Width>
                         </MinSize>
-                        <!-- MaxSize>
-                            <Height>1000</Height>
-                            <Width>1000</Width>
-                        </MaxSize -->
+                        <MaxSize>
+                            <Height>2000</Height>
+                            <Width>2000</Width>
+                        </MaxSize>
                         
 					</Geometry>
 					<Icons>

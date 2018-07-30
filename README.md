@@ -27,7 +27,10 @@ Because of the character of this add-on that loads external script files, it is 
 * __CL__ : clears the canvas
 * __DB__ : opens the debug tool with a default browser.
 * __RL__ : reloads the extention panel
-* __load__ : shows a panel to drop a script file to load (also clears the canvas)
+
+### loading a script file
+* Drag and drop a script file you want to load onto the panel.
+* Drawing on the panel will be cleared after loading is complete.
 
 ### script files that can be loaded
 * There're some sample scripts in "[scripts](https://github.com/shspage/plainCanvas/tree/master/scripts)" folder.  
@@ -68,9 +71,15 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * The script file is loaded by drag-and-drop to the panel.
 #### v.1.1.1
 * Improved to invalidate drop to panel except when loading.
+#### v.1.1.2
+* Removed the "load" button. A drop of a script file is always accepted.
+* Simplified optionManager methods. Updated the contents of the sample script accordingly.
+* Expanded the maximum panel size to 2000 x 2000 pixels.
 
-### TODO
-* I feel that writing a script file for this extension is fairly not easy, due to some "local rules". I would like to be able to write it with paperscript if possible.
+### TODO / known issues
+* Review the external script file reading method.
+* The black and white of the figure captured from the artboard may be reversed.
+* When exporting, there may be cases where the context of things captured from the artboard and those drawn on the canvas are incorrect.
 
 ### License
 * When you distribute a modified version, make sure changing the __bundle ID__.

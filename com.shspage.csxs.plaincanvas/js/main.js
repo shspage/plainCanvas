@@ -172,14 +172,14 @@
     // ----------------------
     // functions to load a script file
     // ----------------------
+    var _dropFileObj = null;
+    
     function handleFileSelect(evt){
         evt.stopPropagation();
         evt.preventDefault();
-        console.log("in");
         var files = evt.dataTransfer.files;
         if(files.length > 0){
             var fileobj = files[0];
-            console.log(fileobj);
             var type = fileobj.type;
             
             if(type != "application/x-javascript"
@@ -193,10 +193,12 @@
                 alert("Please select a JavaScript file.\rSelected file is \"" + type + "\".");
                 return false;
             }
-            insertPaperScript(fileobj);
-            $("#div_dropzone").hide();
-            $("#div_screen").hide();
-            $("#script_filename").text(fileobj.name);
+
+            // confirm
+            _dropFileObj = fileobj;
+            $("#span_dropzone_text").text("load " + fileobj.name + " ?")
+            $("#div_dropzone").show();
+            $("#div_screen").show();
         }
     }
     function handleDragOver(evt){
@@ -205,10 +207,6 @@
         evt.dataTransfer.dropEffect = "copy";
     }
     
-    var dropZone = document.getElementById('div_dropzone');
-    dropZone.addEventListener('dragover', handleDragOver, false);
-    dropZone.addEventListener('drop', handleFileSelect, false);
-
     // load a script file and insert its contents into the document
     function insertPaperScript(fileobj){
         var fr = new FileReader();
@@ -242,10 +240,8 @@
             $("#btn_reload").click(reloadPanel);
         }
 
-        $(document).on('drop dragover', function (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        });
+        document.addEventListener('dragover', handleDragOver);
+        document.addEventListener('drop', handleFileSelect);
         
         // in button
         // serialize paths selected in artboard
@@ -254,8 +250,6 @@
             csInterface.evalScript('serializePaths()', function(result){
                 if(paper.project == null) return;
                 if(result == "") return;
-                
-                //console.log(result);
 
                 var r = result.split(",");
                 var p;
@@ -376,30 +370,14 @@
             }
         });
         
-        // file select button
-        // load a javascript file and setup paper again
-        /* $("#file").change(function(e){
-            var fileobj = e.target.files[0];
-            var type = fileobj.type;
-            
-            if(type != "application/x-javascript"
-               && type != "application/javascript"
-               && type != "text/javascript"){
-                
-                if(type == ""){
-                    type = "(unknown type)";
-                }
-                
-                alert("Please select a JavaScript file.\rSelected file is \"" + type + "\".");
-                return false;
+        $("#btn_file_ok").click(function(e){
+            if(_dropFileObj != null){
+                insertPaperScript(_dropFileObj);
+                $("#div_dropzone").hide();
+                $("#div_screen").hide();
+                $("#script_filename").text(_dropFileObj.name);
+                _dropFileObj = null;
             }
-            insertPaperScript(fileobj);
-        }); */
-
-        // ----
-        $("#btn_file").click(function(e){
-            $("#div_dropzone").show();
-            $("#div_screen").show();
         });
         $("#btn_file_cancel").click(function(e){
             $("#div_dropzone").hide();

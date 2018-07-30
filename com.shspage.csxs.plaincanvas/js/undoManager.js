@@ -1,6 +1,6 @@
 /*
   undoManager
-  
+  v.1.0
 
     undoManager.keep(item);
     ... regist an item as a target of undo/redo

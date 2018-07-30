@@ -63,7 +63,29 @@ span.black_text{
 	color:#000000;
 }
 
+#div_canvas{
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+#div_screen{
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color:#333333;
+	opacity:0.5;
+}
+#div_buttons{
+	top: 0px;
+	position: absolute
+}
 #div_dropzone{
+	top: 0px;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-wrap: wrap;
