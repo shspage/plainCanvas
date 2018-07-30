@@ -33,7 +33,7 @@
 ### 読み込んで実行できる JavaScript スクリプト
 * [scripts](https://github.com/shspage/plainCanvas/tree/master/scripts) フォルダにサンプルスクリプトがあります。
 * javascript として記述してください (paperscript ではなく)。詳しくは、http://paperjs.org の、チュートリアル "[Using JavaScript Directly](http://paperjs.org/tutorials/getting-started/using-javascript-directly/)" をご覧下さい。  
-　　__例：__ new Path() -> new paper.Path()  // または "with(paper){" ステートメントを使うなど
+　　__例：__ new Path() -> new paper.Path()  // または "with(paper){" ステートメントを使うなど  
 　　__例：__ point1 + point2 -> point1.add(point2)  
 　　__例：__ function onMouseDown(event) -> tool.onMouseDown = function(event)  
 * 文字コードは utf-8 で作成してください。（js/main.js 内の SCRIPT_ENCODING で変更することもできます。変更した場合は、index.htmlのcharset も変更してください。）
