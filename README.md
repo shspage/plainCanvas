@@ -35,7 +35,7 @@ Because of the character of this add-on that loads external script files, it is 
 ### script files that can be loaded
 * There're some sample scripts in "[scripts](https://github.com/shspage/plainCanvas/tree/master/scripts)" folder.  
 * Write in __JavaScript__ (not paperscript).  For details, see "[Using JavaScript Directly](http://paperjs.org/tutorials/getting-started/using-javascript-directly/)" in http://paperjs.org.  
-__ex:__ new Path() -> new paper.Path()  
+__ex:__ new Path() -> new paper.Path()   // or use "with(paper){" statement
 __ex:__ point1 + point2 -> point1.add(point2)  
 __ex:__ function onMouseDown(event) -> tool.onMouseDown = function(event)  
 * Set the character encoding to __UTF-8__.
