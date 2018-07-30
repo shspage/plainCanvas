@@ -73,9 +73,10 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * パネルの最大サイズを2000×2000に拡大しました。
 
 ### TODO / 既知の問題
-* 外部スクリプトファイルの読み込み方法を再検討する。
+* TODO: 外部スクリプトファイルの読み込み方法を再検討する。
 * アートボードから取り込んだ図形の白黒が反転する場合がある。
 * 書き出した際に、アートボードから取り込んだものとcanvas上で描画したものの前後関係が正しくない場合がある。
+* TODO: アートボードとのやりとりに importSVG, exportSVG を使う？
 
 ### ライセンス、その他
 * ※ 改変して公開する場合は、必ず __バンドルID__ を変更してください。（バンドルID … CSXS/manifest.xml および.debug 内の com.shspage.csxs.plaincanvas。）

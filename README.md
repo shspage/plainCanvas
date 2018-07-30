@@ -77,9 +77,10 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Expanded the maximum panel size to 2000 x 2000 pixels.
 
 ### TODO / known issues
-* Review the external script file reading method.
+* TODO: Review the external script file reading method.
 * The black and white of the figure captured from the artboard may be reversed.
 * When exporting, there may be cases where the context of things captured from the artboard and those drawn on the canvas are incorrect.
+* TODO: use importSVG, exportSVG to exchange data with artboard ?
 
 ### License
 * When you distribute a modified version, make sure changing the __bundle ID__.
