@@ -1,4 +1,4 @@
-// juzu
+// hatchingLine
 // for plainCanvas v.1.1.2 or later
 (function() {
     paper.setup("canvas");
