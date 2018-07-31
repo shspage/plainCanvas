@@ -19,8 +19,10 @@
         // --------------------------
         tool.onMouseDown = function(event){
             opts.ok = optionManager.getOptionsFromUI(opts);
-            lastPoint = event.point;
-            gr = new Group();
+            if(opts.ok){
+                lastPoint = event.point;
+                gr = new Group();
+            }
         }
         // --------------------------
         tool.onMouseDrag = function(event) {
