@@ -17,5 +17,5 @@ Drag or click to draw. Some options are available.
 ![desc_juzu](https://github.com/shspage/plainCanvas/raw/master/scripts/image/desc_juzu.png)
 
 ## hatchingLine.js
-Drag to draw. Some options are available.
+Drag to draw. Some options are available.  
 ![desc_hatchingLine](https://github.com/shspage/plainCanvas/raw/master/scripts/image/desc_hatchingline.png)
