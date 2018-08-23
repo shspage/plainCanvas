@@ -156,7 +156,7 @@
         if(color_type == "N"){  // N,0,0,0,0,
             col = null;
         } else if(color_type == "G"){
-            col = new paper.Color(pf(c1));
+            col = new paper.Color(1 - pf(c1));
         } else if(color_type == "RGB"){
             col = new paper.Color(pf(c1), pf(c2), pf(c3));
         } else if(color_type == "CMYK"){

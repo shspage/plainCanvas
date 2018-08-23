@@ -2,7 +2,7 @@
 <ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.0.0"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.2" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.3" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>

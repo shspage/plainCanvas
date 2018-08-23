@@ -75,10 +75,11 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Removed the "load" button. A drop of a script file is always accepted.
 * Simplified optionManager methods. Updated the contents of the sample script accordingly.
 * Expanded the maximum panel size to 2000 x 2000 pixels.
+#### v.1.1.3
+* Fixed grayColor import/export issue.
 
 ### TODO / known issues
 * TODO: Review the external script file reading method.
-* The black and white of the figure captured from the artboard may be reversed.
 * When exporting, there may be cases where the context of things captured from the artboard and those drawn on the canvas are incorrect.
 * TODO: use importSVG, exportSVG to exchange data with artboard ?
 
