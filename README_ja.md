@@ -1,6 +1,6 @@
 # plainCanvas
 
-　Adobe Illustrator (CC 2014-2018) 用の add-on です。以下のことが可能です。
+　Adobe Illustrator (CC 2014-2020) 用の add-on です。以下のことが可能です。
 
 * [paper.js](http://paperjs.org) 用に書かれた JavaScript ファイルを読み込んで実行する。  
 （初期状態では、ドラッグで線を描くツールが使用できます。）
@@ -71,6 +71,10 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * loadボタンを廃止し、スクリプトファイルのドロップを常に受け付けるようにしました。
 * paper.js の基本オブジェクトをグローバルにしました。これに合わせてサンプルスクリプトも更新しました。
 * パネルの最大サイズを2000×2000に拡大しました。
+#### v.1.1.3
+* グレーカラーのインポート/エクスポートでの問題を修正
+#### v.1.1.4
+* manifest.xml で対応バージョンの上限を 24.9 に変更
 
 ### TODO / 既知の問題
 * TODO: 外部スクリプトファイルの読み込み方法を再検討する。

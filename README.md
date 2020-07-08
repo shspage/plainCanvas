@@ -1,6 +1,6 @@
 # plainCanvas
 
-Adobe Illustrator (CC 2014-2018) add-on with following functions.  
+Adobe Illustrator (CC 2014-2020) add-on with following functions.  
 (Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
 
 * loads and executes a script file written for [paper.js](http://paperjs.org).  
@@ -77,6 +77,8 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Expanded the maximum panel size to 2000 x 2000 pixels.
 #### v.1.1.3
 * Fixed grayColor import/export issue.
+#### v.1.1.4
+* Set the upper limit of supported versions to 24.9 in manifest.xml.
 
 ### TODO / known issues
 * TODO: Review the external script file reading method.
