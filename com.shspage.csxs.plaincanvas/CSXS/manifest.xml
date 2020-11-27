@@ -2,11 +2,11 @@
 <ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.0.0"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.4" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.5" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
-            <Host Name="ILST" Version="[18.0,24.9]" />
+            <Host Name="ILST" Version="[18.0,25.9]" />
 		</HostList>
 		<LocaleList>
 			<Locale Code="All" />
