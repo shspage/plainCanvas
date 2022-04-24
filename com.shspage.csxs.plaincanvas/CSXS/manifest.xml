@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.0.0"
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.1.6"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.5" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.6" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
-            <Host Name="ILST" Version="[18.0,25.9]" />
+            <Host Name="ILST" Version="[18.0,99.9]" />
 		</HostList>
 		<LocaleList>
 			<Locale Code="All" />
