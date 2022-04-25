@@ -27,9 +27,11 @@ Because of the character of this add-on that loads external script files, it is 
 * __CL__ : clears the canvas
 * __DB__ : opens the debug tool with a default browser.
 * __RL__ : reloads the extention panel
+* __load__ : opens a dialog to select a script file to lead
 
 ### loading a script file
-* Drag and drop a script file you want to load onto the panel.
+* Drag and drop a script file you want to load onto the panel.  
+You can also use __load__ button to select a script file.
 * Drawing on the panel will be cleared after loading is complete.
 
 ### script files that can be loaded
@@ -79,6 +81,10 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Fixed grayColor import/export issue.
 #### v.1.1.4
 * Set the upper limit of supported versions to 24.9 in manifest.xml.
+#### v.1.1.6
+* Set the upper limit of supported versions to 99.9 in manifest.xml.
+#### v.1.1.7
+* The "load" button is back.
 
 ### TODO / known issues
 * TODO: Review the external script file reading method.

@@ -383,6 +383,21 @@
             $("#div_dropzone").hide();
             $("#div_screen").hide();
         });
+
+        $("#fileSelect").change(function(e){
+            var fileobj = e.target.files[0];
+            if(fileobj.type != "application/x-javascript"
+               && fileobj.type != "text/javascript"){
+                alert("select a JavaScript file");
+                return false;
+            }
+            insertPaperScript(fileobj);
+            $("#script_filename").text(fileobj.name);
+        });
+        
+        $("#btn_file").click(function(e){
+            $("#fileSelect").click();
+        });
     }
     
     init();
