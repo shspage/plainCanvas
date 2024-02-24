@@ -1,4 +1,4 @@
-/*global $, window, location, CSInterface, SystemPath, themeManager, paper, optionManager, undoManager*/
+/*global $, window, location, CSInterface, SystemPath, themeManager, paper, optionManager, undoManager, runPaperScript*/
 
 (function () {
     'use strict';
@@ -217,6 +217,7 @@
             _ids = {};
             optionManager.resetOptions();
             
+            $("#script_paper").remove();
             var script = document.createElement("script");
             script.setAttribute("id","script_paper");
             script.type = "text/javascript";
@@ -338,6 +339,15 @@
             csInterface.evalScript(code);
         });
 
+         // run button
+         $("#btn_run").click(function(){
+            if(runPaperScript){
+                runPaperScript();
+            } else {
+                alert("nothing to run");
+            }
+        });
+
         // option button
         // show or hide controls for optional values
         $("#btn_opt").click(function () {
@@ -391,8 +401,10 @@
                 alert("select a JavaScript file");
                 return false;
             }
+            runPaperScript = undefined;
             insertPaperScript(fileobj);
             $("#script_filename").text(fileobj.name);
+            this.value = null;
         });
         
         $("#btn_file").click(function(e){

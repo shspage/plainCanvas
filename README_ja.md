@@ -1,6 +1,6 @@
 # plainCanvas
 
-　Adobe Illustrator (CC 2014-2020) 用の add-on です。以下のことが可能です。
+　Adobe Illustrator (CC 2014-) 用の add-on です。以下のことが可能です。
 
 * [paper.js](http://paperjs.org) 用に書かれた JavaScript ファイルを読み込んで実行する。  
 （初期状態では、ドラッグで線を描くツールが使用できます。）
@@ -12,13 +12,14 @@
 ### 導入方法
 　諸々のスクリプトを読み込んで実行するという性格上、デバッグ機能を利用することを想定しています。このため、導入には通常のadd-onと異なる手順が必要です。    
 
-1. [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) の10頁にしたがって、debug mode flagを設定してください。  
-2. [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) の5頁（Extension management の節にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
+1. [CEP 10 HTML Extension Cookbook](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#cep-10-html-extension-cookbook) の [Debugging Unsigned Extensions](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#debugging-unsigned-extensions) にしたがって、debug mode flagを設定してください。(CSXS.10とありますが、数字はイラレのバージョンにより異なります。例えば Ai 2024(28.2)では CSXS.11 です。)  
+2. [CEP 10 HTML Extension Cookbook](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#cep-10-html-extension-cookbook) の [Extension Folders](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#extension-folders) にしたがって、com.shspage.csxs.plaincanvas フォルダを、extensions フォルダに置いてください。  
 3. Illustrator を実行して、メニューの ウィンドウ -&#62; エクステンション の中にある plainCanvas を選んでください。
 
 ### パネル上のボタンについて
 * __in__ : Illustratorで選択されているパスが、パネル上に取り込まれます。
 * __out__ : パネル上のパスが、アートボードに書き出されます。
+* __run__ : 実行機能があるスクリプトを実行します。
 * __opt__ : オプション入力欄を表示／非表示します。入力できるオプションがない場合、no option と表示されます。
 * __&#60;__ : 直前の描画を取り消します。
 * __&#62;__ : 直前に取り消した描画をやり直します。
@@ -64,23 +65,26 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * グループと複合パスは解除された状態で取り込まれます。
 
 ### 変更履歴
-#### v.1.1.0
-* パネル上のドラッグでテキストが選択されないようにしました。
-* スクリプトファイルをドラッグ＆ドロップで読み込むようにしました。
-#### v.1.1.1
-* 読み込み時以外、パネルへのドロップを受け付けないようにしました。
+#### v.1.1.8
+* runボタンを追加。runボタン用のサンプルスクリプトを追加。
+* 修正：前回と同じ名前のスクリプトファイルを読み込んだ際に、変更が反映されます。
+#### v.1.1.7
+* loadボタンでもスクリプトファイルを読み込めるようにしました。
+#### v.1.1.6
+* manifest.xml で対応バージョンの上限を 99.9 に変更
+#### v.1.1.4
+* manifest.xml で対応バージョンの上限を 24.9 に変更
+#### v.1.1.3
+* グレーカラーのインポート/エクスポートでの問題を修正
 #### v.1.1.2
 * loadボタンを廃止し、スクリプトファイルのドロップを常に受け付けるようにしました。
 * paper.js の基本オブジェクトをグローバルにしました。これに合わせてサンプルスクリプトも更新しました。
 * パネルの最大サイズを2000×2000に拡大しました。
-#### v.1.1.3
-* グレーカラーのインポート/エクスポートでの問題を修正
-#### v.1.1.4
-* manifest.xml で対応バージョンの上限を 24.9 に変更
-#### v.1.1.6
-* manifest.xml で対応バージョンの上限を 99.9 に変更
-#### v.1.1.7
-* loadボタンでもスクリプトファイルを読み込めるようにしました。
+#### v.1.1.1
+* 読み込み時以外、パネルへのドロップを受け付けないようにしました。
+#### v.1.1.0
+* パネル上のドラッグでテキストが選択されないようにしました。
+* スクリプトファイルをドラッグ＆ドロップで読み込むようにしました。
 
 ### TODO / 既知の問題
 * TODO: 外部スクリプトファイルの読み込み方法を再検討する。

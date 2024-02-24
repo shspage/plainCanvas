@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.1.7"
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.1.8"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.7" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.8" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>
@@ -31,11 +31,11 @@
 					<Geometry>
 						<Size>
 							<Height>500</Height>
-							<Width>600</Width>
+							<Width>700</Width>
 						</Size>
                         <MinSize>
                             <Height>100</Height>
-                            <Width>400</Width>
+                            <Width>500</Width>
                         </MinSize>
                         <MaxSize>
                             <Height>2000</Height>

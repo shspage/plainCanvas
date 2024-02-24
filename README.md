@@ -1,6 +1,6 @@
 # plainCanvas
 
-Adobe Illustrator (CC 2014-2020) add-on with following functions.  
+Adobe Illustrator (CC 2014-) add-on with following functions.  
 (Japanese README is [here](https://github.com/shspage/plainCanvas/blob/master/README_ja.md))
 
 * loads and executes a script file written for [paper.js](http://paperjs.org).  
@@ -13,14 +13,16 @@ Adobe Illustrator (CC 2014-2020) add-on with following functions.
 ### Installation
 Because of the character of this add-on that loads external script files, it is released with an assumtion of doing debugs.  Installation steps are as follows.  
 
-1. Setting the __debug mode flag__ refer to Adobe's document [CC14_Extension_SDK.pdf](http://wwwimages.adobe.com/content/dam/Adobe/en/devnet/creativesuite/pdfs/CC14_Extension_SDK.pdf) at page 10.  
-2. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to the page 5 of above document ("Extension management" section).  
+1. Setting the __debug mode flag__ refer to Adobe's document - [Debugging Unsigned Extensions](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#debugging-unsigned-extensions).
+(It says "CSXS.10", but the number varies depending on the Illustrator's version. ex."CSXS.11" for Ai 2024(28.2))  
+2. Put the folder "com.shspage.csxs.plaincanvas" in the right folder refer to Adobe's document - [Extension Folders](https://github.com/Adobe-CEP/CEP-Resources/blob/master/CEP_10.x/Documentation/CEP%2010.0%20HTML%20Extension%20Cookbook.md#extension-folders).  
 3. Launch Illustrator and navigate Window -&#62; Extensions fo find plainCanvas.
 
 
 ### buttons on the panel
 * __in__ : imports selected paths on the artboard onto the canvas
 * __out__ : exports the image created on the canvas onto the artboard
+* __run__ : executes a script that has an executable function
 * __opt__ : shows/hides the form for optional values
 * __&#60;__ : undo
 * __&#62;__ : redo
@@ -68,23 +70,26 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Grouped paths and compoundpaths are imported in released condition.
 
 ### changelog
-#### v.1.1.0
-* Improved to prevent the text on the panel from being selected by dragging.
-* The script file is loaded by drag-and-drop to the panel.
-#### v.1.1.1
-* Improved to invalidate drop to panel except when loading.
+#### v.1.1.8
+* Added "run" button. Added sample script for "run" button.
+* Fix: Even if you load a script file with the same name as one currently loaded, the changes will take effect.
+#### v.1.1.7
+* The "load" button is back.
+#### v.1.1.6
+* Set the upper limit of supported versions to 99.9 in manifest.xml.
+#### v.1.1.4
+* Set the upper limit of supported versions to 24.9 in manifest.xml.
+#### v.1.1.3
+* Fixed grayColor import/export issue.
 #### v.1.1.2
 * Removed the "load" button. A drop of a script file is always accepted.
 * Simplified optionManager methods. Updated the contents of the sample script accordingly.
 * Expanded the maximum panel size to 2000 x 2000 pixels.
-#### v.1.1.3
-* Fixed grayColor import/export issue.
-#### v.1.1.4
-* Set the upper limit of supported versions to 24.9 in manifest.xml.
-#### v.1.1.6
-* Set the upper limit of supported versions to 99.9 in manifest.xml.
-#### v.1.1.7
-* The "load" button is back.
+#### v.1.1.1
+* Improved to invalidate drop to panel except when loading.
+#### v.1.1.0
+* Improved to prevent the text on the panel from being selected by dragging.
+* The script file is loaded by drag-and-drop to the panel.
 
 ### TODO / known issues
 * TODO: Review the external script file reading method.

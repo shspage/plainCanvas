@@ -1,5 +1,9 @@
 These scripts are written to be loaded from plainCanvas add-on.
 
+## run.js
+An executable script example. Draws a circle on random position in random size and random color.  
+Some options are available.  
+
 ## hatchingLineArc.js
 Drag to draw. Some options are available.  
 ![desc_hatchingLineArc](https://github.com/shspage/plainCanvas/raw/master/scripts/image/desc_hatchinglinearc.png)
