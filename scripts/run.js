@@ -22,7 +22,9 @@
                   .multiply(Point.random()),
                 radius: radius,
                 fillColor: Color.random()
-            });          
+            });
+
+            undoManager.keep(circle);
         }
 
         function getRadius(){
