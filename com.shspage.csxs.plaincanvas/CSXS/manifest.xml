@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.1.8"
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.shspage.csxs.plaincanvas" ExtensionBundleVersion="1.2.0"
 		ExtensionBundleName="plainCanvas" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<ExtensionList>
-		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.1.8" />
+		<Extension Id="com.shspage.csxs.plaincanvas" Version="1.2.0" />
 	</ExtensionList>
 	<ExecutionEnvironment>
 		<HostList>

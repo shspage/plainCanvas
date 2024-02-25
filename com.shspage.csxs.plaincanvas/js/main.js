@@ -207,12 +207,23 @@
         evt.dataTransfer.dropEffect = "copy";
     }
     
+    // ----
+    function clearCanvas(){
+        if(undoManager) undoManager.clearHistory();
+        if(paper.project){
+            var cs = paper.project.activeLayer.children;
+            for(var i = cs.length - 1; i >= 0; i--){
+                cs[i].remove();
+            }
+        }
+    }
+    
     // load a script file and insert its contents into the document
     function insertPaperScript(fileobj){
         var fr = new FileReader();
         fr.onload = function(e){
-            if(undoManager) undoManager.clearHistory();
-            paper.clear();
+            clearCanvas();
+            paper.remove();
 
             _ids = {};
             optionManager.resetOptions();
@@ -366,17 +377,11 @@
         $("#btn_redo").click(function(e){
             if(undoManager) undoManager.redo();
         });
-        
+
         // clear button
         $("#btn_clear").click(function(e){
             if(confirm("clear the canvas?")){
-                if(undoManager) undoManager.clearHistory();
-                if(paper.project){
-                    var cs = paper.project.activeLayer.children;
-                    for(var i = cs.length - 1; i >= 0; i--){
-                        cs[i].remove();
-                    }
-                }
+                clearCanvas();
             }
         });
         
