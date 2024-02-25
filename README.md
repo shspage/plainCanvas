@@ -70,6 +70,8 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Grouped paths and compoundpaths are imported in released condition.
 
 ### changelog
+#### v.1.2.0
+* updated libraries
 #### v.1.1.8
 * Added "run" button. Added sample script for "run" button.
 * Fix: Even if you load a script file with the same name as one currently loaded, the changes will take effect.
@@ -107,10 +109,10 @@ This software uses the following libraries that may have
 licenses differing from that of the software itself. You can find the
 libraries and their respective licenses below.
 
-* Paper.js v0.9.23 - The Swiss Army Knife of Vector Graphics Scripting.  
+* Paper.js v0.12.17 - The Swiss Army Knife of Vector Graphics Scripting.  
 http://paperjs.org/  
-Copyright (c) 2011 - 2014, Juerg Lehni & Jonathan Puckey  
-http://scratchdisk.com/ & http://jonathanpuckey.com/  
+Copyright (c) 2011 - 2020, Jürg Lehni & Jonathan Puckey
+http://juerglehni.com/ & https://puckey.studio/
 All rights reserved.  
 
 * Creative Cloud Extension Builder for Brackets  

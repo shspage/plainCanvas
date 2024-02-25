@@ -65,6 +65,8 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * グループと複合パスは解除された状態で取り込まれます。
 
 ### 変更履歴
+#### v.1.2.0
+* ライブラリ類を更新。
 #### v.1.1.8
 * runボタンを追加。runボタン用のサンプルスクリプトを追加。
 * 修正：前回と同じ名前のスクリプトファイルを読み込んだ際に、変更が反映されます。
@@ -97,10 +99,10 @@ _pathPoints, strokeWidth, strokeColor, fillColor_
 * MIT ライセンスの下で公開しています。詳細はLICENSE.txtをご覧下さい。
 ただし、以下の使用ライブラリは、それぞれのライセンスに従います。
 
-* Paper.js v0.9.23 - The Swiss Army Knife of Vector Graphics Scripting.  
+* Paper.js v0.12.17 - The Swiss Army Knife of Vector Graphics Scripting.  
 http://paperjs.org/  
-Copyright (c) 2011 - 2014, Juerg Lehni & Jonathan Puckey  
-http://scratchdisk.com/ & http://jonathanpuckey.com/  
+Copyright (c) 2011 - 2020, Jürg Lehni & Jonathan Puckey
+http://juerglehni.com/ & https://puckey.studio/
 All rights reserved.  
 
 * Creative Cloud Extension Builder for Brackets  
