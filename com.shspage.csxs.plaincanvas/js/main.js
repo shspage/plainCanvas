@@ -20,8 +20,11 @@
     // encoding of a script file which is loaded
     var SCRIPT_ENCODING = "utf-8";
 
+    // holds various values
+    var _spec = {
+        script_filename : ""
+    }
 
-  
     var csInterface = new CSInterface();
     
     // Opens the chrome developer tools in host app
@@ -220,20 +223,34 @@
     
     // load a script file and insert its contents into the document
     function insertPaperScript(fileobj){
+        _spec.script_filename = fileobj.name;
+
         var fr = new FileReader();
         fr.onload = function(e){
+            var data = e.target.result;
+            try {
+                Function(data);
+            } catch(err){
+                console.log(err);
+                alert("Failed to load : " + err.name + "\n" + err.message);
+                return;
+            }
+
             clearCanvas();
             paper.remove();
 
             _ids = {};
             optionManager.resetOptions();
-            
+            runPaperScript = undefined;
+           
             $("#script_paper").remove();
             var script = document.createElement("script");
             script.setAttribute("id","script_paper");
             script.type = "text/javascript";
             script.innerHTML = e.target.result;
             document.body.appendChild( script );
+
+            $("#script_filename").text(_spec.script_filename);
         }
         fr.readAsText(fileobj, SCRIPT_ENCODING);
     }
@@ -353,7 +370,12 @@
          // run button
          $("#btn_run").click(function(){
             if(runPaperScript){
-                runPaperScript();
+                try {
+                    runPaperScript();
+                } catch(err){
+                    console.log(err);
+                    alert("ERROR : " + err.name + "\n" + err.message);
+                }
             } else {
                 alert("nothing to run");
             }
@@ -390,7 +412,6 @@
                 insertPaperScript(_dropFileObj);
                 $("#div_dropzone").hide();
                 $("#div_screen").hide();
-                $("#script_filename").text(_dropFileObj.name);
                 _dropFileObj = null;
             }
         });
@@ -406,9 +427,7 @@
                 alert("select a JavaScript file");
                 return false;
             }
-            runPaperScript = undefined;
             insertPaperScript(fileobj);
-            $("#script_filename").text(fileobj.name);
             this.value = null;
         });
         

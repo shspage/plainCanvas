@@ -70,6 +70,8 @@ _pathPoints, strokeWidth, strokeColor, fillColor._
 * Grouped paths and compoundpaths are imported in released condition.
 
 ### changelog
+#### v.1.2.1
+* Added script loading error alert and run error alert.
 #### v.1.2.0
 * updated libraries
 #### v.1.1.8
