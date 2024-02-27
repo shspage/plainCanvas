@@ -22,7 +22,8 @@
 
     // holds various values
     var _spec = {
-        script_filename : ""
+        inputFileName : "",
+        dropFileObj : null
     }
 
     var csInterface = new CSInterface();
@@ -175,8 +176,6 @@
     // ----------------------
     // functions to load a script file
     // ----------------------
-    var _dropFileObj = null;
-    
     function handleFileSelect(evt){
         evt.stopPropagation();
         evt.preventDefault();
@@ -187,18 +186,20 @@
             
             if(type != "application/x-javascript"
                && type != "application/javascript"
-               && type != "text/javascript"){
+               && type != "text/javascript"
+               && type != "image/png"
+               && type != "image/jpeg"){
                 
                 if(type == ""){
                     type = "(unknown type)";
                 }
                 
-                alert("Please select a JavaScript file.\rSelected file is \"" + type + "\".");
+                alert("Please select a JavaScript file, or a png/jpeg Image.\rSelected file is \"" + type + "\".");
                 return false;
             }
 
             // confirm
-            _dropFileObj = fileobj;
+            _spec.dropFileObj = fileobj;
             $("#span_dropzone_text").text("load " + fileobj.name + " ?")
             $("#div_dropzone").show();
             $("#div_screen").show();
@@ -211,19 +212,33 @@
     }
     
     // ----
+    function removeRaster(){
+        var image = document.getElementById("raster");
+        if(image){
+            image.remove();
+        }
+        if(paper.project.activeLayer.data.raster){
+            paper.project.activeLayer.data.raster.remove();
+            paper.project.activeLayer.data.raster = null;
+        }
+        $("#raster_indicator").text("");
+    }
+
     function clearCanvas(){
         if(undoManager) undoManager.clearHistory();
+        removeRaster();
         if(paper.project){
             var cs = paper.project.activeLayer.children;
             for(var i = cs.length - 1; i >= 0; i--){
                 cs[i].remove();
             }
         }
+        _ids = {};
     }
     
     // load a script file and insert its contents into the document
     function insertPaperScript(fileobj){
-        _spec.script_filename = fileobj.name;
+        _spec.inputFileName = fileobj.name;
 
         var fr = new FileReader();
         fr.onload = function(e){
@@ -239,7 +254,6 @@
             clearCanvas();
             paper.remove();
 
-            _ids = {};
             optionManager.resetOptions();
             runPaperScript = undefined;
            
@@ -250,12 +264,32 @@
             script.innerHTML = e.target.result;
             document.body.appendChild( script );
 
-            $("#script_filename").text(_spec.script_filename);
+            $("#script_filename").text(_spec.inputFileName);
         }
         fr.readAsText(fileobj, SCRIPT_ENCODING);
     }
 
-
+    // load an image
+    function insertRaster(fileobj){
+        var fr = new FileReader();
+        fr.onload = function (e) {
+            removeRaster();
+            var image = document.createElement('img');
+            image.setAttribute("id","raster");
+            image.onload = function () {
+                var raster = new paper.Raster(image);
+                raster.sendToBack();
+                raster.fitBounds(new paper.Rectangle(0,0,
+                    window.innerWidth, window.innerHeight));
+                raster.visible = true;
+                paper.project.activeLayer.data.raster = raster;
+                $("#raster_indicator").text(" + image");
+            };
+            image.src = e.target.result;
+            document.body.appendChild( image );
+        };
+        fr.readAsDataURL(fileobj);
+    }
     // ----------------------
     // initialize the extension
     // ----------------------
@@ -408,11 +442,15 @@
         });
         
         $("#btn_file_ok").click(function(e){
-            if(_dropFileObj != null){
-                insertPaperScript(_dropFileObj);
+            if(_spec.dropFileObj != null){
+                if(_spec.dropFileObj.type.startsWith("image")){
+                    insertRaster(_spec.dropFileObj);
+                } else {
+                    insertPaperScript(_spec.dropFileObj);
+                }
                 $("#div_dropzone").hide();
                 $("#div_screen").hide();
-                _dropFileObj = null;
+                _spec.dropFileObj = null;
             }
         });
         $("#btn_file_cancel").click(function(e){
@@ -422,12 +460,18 @@
 
         $("#fileSelect").change(function(e){
             var fileobj = e.target.files[0];
-            if(fileobj.type != "application/x-javascript"
-               && fileobj.type != "text/javascript"){
-                alert("select a JavaScript file");
+            if(fileobj.type == "application/x-javascript"
+                || fileobj.type == "application/javascript"
+                || fileobj.type == "text/javascript"){
+                insertPaperScript(fileobj);
+            } else if(fileobj.type == "image/png"
+               || fileobj.type == "image/jpeg"){
+                insertRaster(fileobj);
+            } else {
+                console.log(fileobj.type);
+                alert("select a JavaScript file or a png/jpeg Image");
                 return false;
             }
-            insertPaperScript(fileobj);
             this.value = null;
         });
         
