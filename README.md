@@ -69,7 +69,16 @@ _segments, strokeWidth, strokeColor, fillColor, opacity_
 _pathPoints, strokeWidth, strokeColor, fillColor._
 * Grouped paths and compoundpaths are imported in released condition.
 
+### Loading images
+* You can load images by dragging and dropping them onto the panel or by using the __load__ button. Supported image formats are jpeg and png.
+* You can hide the image by clicking [hide image] displayed at the top right of the panel after loading the image. Click again to display.
+* The loaded image is stored in __paper.project.activeLayer.data.raster__ and can be used in scripts.
+* The loaded image is discarded when loading a script file or clearing the screen using the CL/RL buttons.
+
+
 ### changelog
+#### v.1.2.2
+* Supports image loading.
 #### v.1.2.1
 * Added script loading error alert and run error alert.
 #### v.1.2.0

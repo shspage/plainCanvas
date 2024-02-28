@@ -65,9 +65,15 @@
         function drawCircle(r){
             var c = new Path.Circle(lastPnt, r);
             c.strokeColor = null;
-            var color_value = Math.min(1, Math.max(0, (Math.random() - 0.5) * grayRange + 0.5));
-            
-            c.fillColor = new Color(color_value);
+
+            var raster = project.activeLayer.data.raster;
+            if(raster){
+                c.fillColor = raster.getAverageColor(c);
+            } else {
+                var color_value = Math.min(1, Math.max(0, (Math.random() - 0.5) * grayRange + 0.5));
+                
+                c.fillColor = new Color(color_value);
+            }
             
             //c.fillColor = new Color(0);  // use opacity
             //c.opacity = color_value;

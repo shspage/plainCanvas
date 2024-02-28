@@ -23,9 +23,10 @@
     // holds various values
     var _spec = {
         inputFileName : "",
-        dropFileObj : null
+        inputFileObj : null
     }
 
+    
     var csInterface = new CSInterface();
     
     // Opens the chrome developer tools in host app
@@ -194,12 +195,13 @@
                     type = "(unknown type)";
                 }
                 
-                alert("Please select a JavaScript file, or a png/jpeg Image.\rSelected file is \"" + type + "\".");
+                alert("Please select a JavaScript file, or a png/jpeg Image.\n"
+                      + "Selected file is \"" + type + "\".");
                 return false;
             }
 
             // confirm
-            _spec.dropFileObj = fileobj;
+            _spec.inputFileObj = fileobj;
             $("#span_dropzone_text").text("load " + fileobj.name + " ?")
             $("#div_dropzone").show();
             $("#div_screen").show();
@@ -283,7 +285,7 @@
                     window.innerWidth, window.innerHeight));
                 raster.visible = true;
                 paper.project.activeLayer.data.raster = raster;
-                $("#raster_indicator").text(" + image");
+                $("#raster_indicator").text(" [hide image]");
             };
             image.src = e.target.result;
             document.body.appendChild( image );
@@ -440,36 +442,38 @@
                 clearCanvas();
             }
         });
-        
+
         $("#btn_file_ok").click(function(e){
-            if(_spec.dropFileObj != null){
-                if(_spec.dropFileObj.type.startsWith("image")){
-                    insertRaster(_spec.dropFileObj);
+            if(_spec.inputFileObj != null){
+                if(_spec.inputFileObj.type.startsWith("image")){
+                    insertRaster(_spec.inputFileObj);
                 } else {
-                    insertPaperScript(_spec.dropFileObj);
+                    insertPaperScript(_spec.inputFileObj);
                 }
                 $("#div_dropzone").hide();
                 $("#div_screen").hide();
-                _spec.dropFileObj = null;
+                _spec.inputFileObj = null;
             }
         });
         $("#btn_file_cancel").click(function(e){
             $("#div_dropzone").hide();
             $("#div_screen").hide();
+            _spec.inputFileObj = null;
         });
 
         $("#fileSelect").change(function(e){
             var fileobj = e.target.files[0];
-            if(fileobj.type == "application/x-javascript"
-                || fileobj.type == "application/javascript"
-                || fileobj.type == "text/javascript"){
+            var type = fileobj.type;
+            if(type == "application/x-javascript"
+                || type == "application/javascript"
+                || type == "text/javascript"){
                 insertPaperScript(fileobj);
-            } else if(fileobj.type == "image/png"
-               || fileobj.type == "image/jpeg"){
+            } else if(type == "image/png"
+                || type == "image/jpeg"){
                 insertRaster(fileobj);
             } else {
-                console.log(fileobj.type);
-                alert("select a JavaScript file or a png/jpeg Image");
+                alert("Select a JavaScript file or a png/jpeg Image.\n"
+                      + "Selected file is \"" + type + "\".");
                 return false;
             }
             this.value = null;
@@ -477,6 +481,20 @@
         
         $("#btn_file").click(function(e){
             $("#fileSelect").click();
+        });
+
+        // toggles visibility of loaded image
+        $("#raster_indicator").click(function(e){
+            var raster = paper.project.activeLayer.data.raster;
+            if(raster){
+                if(raster.visible){
+                    raster.visible = false;
+                    $("#raster_indicator").text(" [show image]");
+                } else {
+                    raster.visible = true;
+                    $("#raster_indicator").text(" [hide image]");
+                }
+            }
         });
     }
     
